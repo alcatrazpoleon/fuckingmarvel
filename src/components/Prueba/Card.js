@@ -21,15 +21,16 @@ class Cards extends React.Component {
       key,
     } = this.props;
     
-    const url = '';
+    let url = '';
     const { comics} = this.state;
-    const characterId = `${key}`
+    const characterId = {key};
     const img = `${path}.${extension}`;
+    
  
 
     function handleClick(e) {
       e.preventDefault();
-      const BASE_URL_API = "http://gateway.marvel.com/v1/public/";
+      const BASE_URL_API = "http://gateway.marvel.com/v1/public/characters/";
       var MD5 = function (string) {
         function RotateLeft(lValue, iShiftBits) {
           return (lValue << iShiftBits) | (lValue >>> (32 - iShiftBits));
@@ -268,15 +269,15 @@ class Cards extends React.Component {
       var PUBLIC_KEY = "994ff49d3bbd89efaeb4e1a6a4629c55";
       var HASH = MD5(stConvert);
   
-      const getComicsmyCharacters = (characterId) =>
-        `${BASE_URL_API}characters/${characterId}/comics&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
+      url = `${BASE_URL_API}${characterId}/comics&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
        
-       url = getComicsmyCharacters(characterId)          
-        .fetch(url)
+                
+        fetch(url)
         .then((response) => response.json())
         .then((json) => this.setState({ comics: json.data.results }));
       console.log(comics);
     }
+
 
     return (
       <div className="portfolio-container">

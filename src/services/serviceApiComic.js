@@ -1,4 +1,4 @@
-const BASE_URL_API = "http://gateway.marvel.com/v1/public/"
+const BASE_URL_API = "http://gateway.marvel.com/v1/public/characters/"
 var MD5 = function (string) {
 
     function RotateLeft(lValue, iShiftBits) {
@@ -204,17 +204,12 @@ var stConvert = timeStamp+"3dfa3e9a97bf957ec013f696c3a86eeed39fb6d1"+"994ff49d3b
 var PUBLIC_KEY = "994ff49d3bbd89efaeb4e1a6a4629c55"
 var HASH = MD5(stConvert)
 
-
-console.log(PUBLIC_KEY)
-console.log(HASH)
-const getUrlApiSearch = query => 
-`${BASE_URL_API}characters?nameStartsWith=${query}&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
+const getComicsmyCharacters = characterId =>
+`${BASE_URL_API}characters/${characterId}/comics&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
 
 
-
-
-export const searchSuperHero = query => {
-    const url = getUrlApiSearch(query)
+export const getComicsmyCharacters = characterId => {
+    const url = getComicsmyCharacters(characterId)
     return fetch(url)
         .then(response => response.json())
         .then(json=>json)  

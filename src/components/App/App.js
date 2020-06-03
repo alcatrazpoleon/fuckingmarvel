@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class App extends Component {
-  constructor() {
+    constructor() {
     super();
     this.state = {
       results: [],
@@ -17,11 +17,13 @@ class App extends Component {
   }
 
   searchSuperHero = (query) => {
-    
+
       serviceApi
       .searchSuperHero(query)
       .then((json) => this.setState( {results:json.data.results} )); 
   };
+
+  
 
   render() {
     const { results } = this.state;

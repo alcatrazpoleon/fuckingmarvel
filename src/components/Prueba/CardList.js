@@ -16,8 +16,7 @@ const CardsList = ({ results }) => (
                     extension={val.thumbnail.extension}
                     key={val.id}
                     disponible={val.comics.available} 
-                    comics={val.comics.items}  
-                    key={val.id}             
+                                                  
                 />
 
             ))}       

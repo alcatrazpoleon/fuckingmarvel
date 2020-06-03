@@ -5,7 +5,8 @@ class Search extends Component{
     constructor(props) {
         super(props)
         this.state = {
-            query: ''
+            query: '',
+            chid:''
         }
     }
 /* Se ejecuta cada vez que se escribe en el input */

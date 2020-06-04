@@ -6,7 +6,7 @@ class Search extends Component{
         super(props)
         this.state = {
             query: '',
-            chid:''
+            
         }
     }
 /* Se ejecuta cada vez que se escribe en el input */

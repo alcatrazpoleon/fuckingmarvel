@@ -208,7 +208,7 @@ var HASH = MD5(stConvert)
 console.log(PUBLIC_KEY)
 console.log(HASH)
 const getUrlApiSearch = query => 
-`${BASE_URL_API}characters?nameStartsWith=${query}&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
+`${BASE_URL_API}characters?nameStartsWith=iron&ts=${timeStamp}&apikey=${PUBLIC_KEY}&hash=${HASH}`
 
 
 

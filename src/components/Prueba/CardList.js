@@ -11,10 +11,10 @@ const CardsList = ({ results }) => (
             {results.map((val) => (
                 <Cards
                     name={val.name}
+                    key={val.id}
                     description={val.description} 
                     path = {val.thumbnail.path}
                     extension={val.thumbnail.extension}
-                    key={val.id}
                     disponible={val.comics.available} 
                                                   
                 />
